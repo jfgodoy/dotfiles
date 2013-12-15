@@ -6,6 +6,16 @@ function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
 function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
 
+# Link files.
+function link_header() { e_header "Linking files into home directory"; }
+function link_test() {
+  [[ "$1" -ef "$2" ]] && echo "same file"
+}
+function link_do() {
+  e_success "Linking ~/$1."
+  ln -sf ${2#$HOME/} ~/
+}
+
 # Copy files.
 function copy_header() { e_header "Copying files into home directory"; }
 function copy_test() {
@@ -89,12 +99,16 @@ fi
 shopt -s dotglob
 shopt -s nullglob
 
+# Create caches directory, if it doesn't already exist.
+mkdir -p "$HOME/.dotfiles/caches"
+
 # If backups are needed, this is where they'll go.
 backup_dir="$HOME/.dotfiles/backups/$(date "+%Y_%m_%d-%H_%M_%S")/"
 backup=
 
 # Execute code for each file in these subdirectories.
 do_stuff "copy"
+do_stuff "link"
 
 # Alert if backups were made.
 if [[ "$backup" ]]; then
