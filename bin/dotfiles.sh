@@ -6,6 +6,12 @@ function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
 function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
 
+
+# run init files.
+function init_do() {
+  source "$2"
+}
+
 # Link files.
 function link_header() { e_header "Linking files into home directory"; }
 function link_test() {
@@ -107,6 +113,7 @@ backup_dir="$HOME/.dotfiles/backups/$(date "+%Y_%m_%d-%H_%M_%S")/"
 backup=
 
 # Execute code for each file in these subdirectories.
+do_stuff "init"
 do_stuff "copy"
 do_stuff "link"
 
