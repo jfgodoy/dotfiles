@@ -20,6 +20,7 @@ fi
 
 
 npm_globals=(
+  bower
   grunt-cli
   jshint
   uglify-js
