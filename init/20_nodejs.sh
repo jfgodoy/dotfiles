@@ -1,5 +1,5 @@
 
-version="v0.10.23"
+version="v0.10.24"
 url="http://nodejs.org/dist/$version/node-$version.tar.gz"
 
 # If Git isn't installed by now, something exploded. We gots to quit!
