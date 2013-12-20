@@ -27,6 +27,7 @@ npm_globals=(
   node-inspector
   david
   mocha
+  node-static
 )
 
 # Install npm modules.
