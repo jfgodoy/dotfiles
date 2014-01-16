@@ -28,6 +28,7 @@ npm_globals=(
   david
   mocha
   node-static
+  jake
 )
 
 # Install npm modules.
