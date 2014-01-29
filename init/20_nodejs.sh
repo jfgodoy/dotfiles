@@ -34,7 +34,7 @@ npm_globals=(
 # Install npm modules.
 if [[ "$(type -P npm)" ]]; then
   e_header "Updating Npm"
-  npm update -g npm
+  sudo npm update -g npm
 
   { pushd "$(npm config get prefix)/lib/node_modules"; installed=(*); popd; } > /dev/null
   list="$(to_install "${npm_globals[*]}" "${installed[*]}")"
