@@ -1,10 +1,16 @@
 echo 'dotfiles - Jorge Godoy <godoy.jf@gmail.com>'
 
+# log file
+log=~/.dotfiles/log
+
+# Clear log
+rm -f $log
+
 # Logging stuff.
-function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
-function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
-function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
-function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
+function e_header()   { echo -e "\n\033[1m$@\033[0m" | tee -a $log; }
+function e_success()  { echo -e " \033[1;32m✔\033[0m  $@" | tee -a $log; }
+function e_error()    { echo -e " \033[1;31m✖\033[0m  $@" | tee -a $log; }
+function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@" | tee -a $log; }
 
 # Given a list of desired items and installed items, return a list
 # of uninstalled items. Arrays in bash are insane (not in a good way).

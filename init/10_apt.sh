@@ -1,8 +1,8 @@
 
 # Update APT.
 e_header "Updating APT"
-sudo apt-get -qq update
-sudo apt-get -qq upgrade
+sudo apt-get -y update >> $log
+sudo apt-get -y upgrade >> $log
 
 # Install APT packages.
 packages=(
@@ -31,6 +31,6 @@ done
 if (( ${#list[@]} > 0 )); then
   e_header "Installing APT packages: ${list[*]}"
   for package in "${list[@]}"; do
-    sudo apt-get -qq install "$package"
+    sudo apt-get -y install "$package" >> $log
   done
 fi
