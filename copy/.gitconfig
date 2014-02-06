@@ -7,3 +7,4 @@
 	st = status
 	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+        clean-all = !git reset --hard && git clean -d -x -f
