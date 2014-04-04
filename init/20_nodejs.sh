@@ -5,13 +5,14 @@ url="http://nodejs.org/dist/$version/node-$version.tar.gz"
 # If Git isn't installed by now, something exploded. We gots to quit!
 if [[ ! "$(type -P node)" || "$version" != "$(node --version)" ]]; then
   e_header "Installing node $version"
-  cd /tmp
+  pushd /tmp
   mkdir node
   curl $url | tar xvzf - --strip-components=1 -C node
   cd node
   ./configure
   make
   sudo make install
+  popd
   rm -rf /tmp/node
   e_success "Node $version was installed."
 else
