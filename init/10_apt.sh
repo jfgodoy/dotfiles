@@ -11,14 +11,13 @@ packages=(
   git
   gitg
   git-cola
-  diffuse
-  vlc
   ubuntu-restricted-extras
-  redis-server
   gnome-shell
-  chromium-browser
   texmaker
   keepassx
+  nautilus-dropbox
+  imagemagick
+  inkscape
 )
 
 list=()
