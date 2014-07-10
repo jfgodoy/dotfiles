@@ -24,6 +24,7 @@ npm_globals=(
   bower
   grunt-cli
   jshint
+  jscs
   uglify-js
   node-inspector
   david
