@@ -6,6 +6,7 @@ sudo apt-get -y upgrade >> $log
 
 # Install APT packages.
 packages=(
+  curl
   guake
   build-essential
   git
