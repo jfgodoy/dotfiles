@@ -1,3 +1,7 @@
 [submodule "vendor/z"]
 	path = vendor/z
 	url = https://github.com/rupa/z.git
+
+[submodule "vendor/tmux/tpm"]
+	path = vendor/tmux/tpm
+	url = https://github.com/tmux-plugins/tpm
