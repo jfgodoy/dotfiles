@@ -1,3 +1,4 @@
+#!/bin/bash
 echo 'dotfiles - Jorge Godoy <godoy.jf@gmail.com>'
 
 # log file
@@ -29,7 +30,6 @@ fi
 
 # Initialize.
 if [[ ! -d ~/.dotfiles ]]; then
-  new_dotfiles_install=1
   # ~/.dotfiles doesn't exist? Clone it!
   e_header "Downloading dotfiles"
   git clone --recursive https://github.com/jfgodoy/dotfiles.git ~/.dotfiles
@@ -38,7 +38,12 @@ else
   # Make sure we have the latest files.
   e_header "Updating dotfiles"
   cd ~/.dotfiles
-  git pull
+  if (($(git status -s | wc -l) == 0)); then
+    git pull
+    e_success "project fetched from github"
+  else
+    e_error "can't fetch, there are uncommitted files"
+  fi
   git submodule update --init --recursive --quiet
 fi
 
