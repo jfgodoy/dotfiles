@@ -1,0 +1,13 @@
+[user]
+        name = Jorge Godoy
+        email = godoy.jf@gmail.com
+[alias]
+        co = checkout
+        cleanup-branches = !git remote prune origin && git branch --merged | egrep -v '(^\\*|master|dev)' | xargs -r git branch -d
+        hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+        lg = "log --pretty='%Cred%h%Creset | %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)[%an]%Creset' --graph"
+[cola]
+        spellcheck = false
+
+[diff]
+        tool = meld
